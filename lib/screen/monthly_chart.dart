@@ -1,5 +1,14 @@
 import 'package:bezier_chart/bezier_chart.dart';
 import 'package:flutter/material.dart';
+
+class MonthlyChart extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return monthlyChart(context);
+  }
+}
+
+
   String x_axis_format( DateTime value,  BezierChartScale scaleType) {
     return "${value.month}";
 }
