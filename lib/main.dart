@@ -1,6 +1,9 @@
+import 'package:bezier_chart/bezier_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbezier/monthly_chart.dart';
 
 import 'Strings.dart';
+import 'custom_chart.dart';
 
 void main() {
   runApp(MyApp());
@@ -87,9 +90,26 @@ class _MyHomePageState extends State<MyHomePage> {
     crossAxisCount: 2,
     childAspectRatio: 2.0),
           children: [
-            cardView(title: "Custom Chart" ,image :Strings.CUSTOM_CHART ),
-            cardView(title: "Weekly Chart" , image :Strings.WEEKLY_CHART),
-            cardView(title: "Monthly Chart" ,image :Strings.MONTHLY_CHART ),
+            GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (c){
+                     return CustomChart();
+                    }
+                  ));
+                },
+                child: cardView(title: "Custom Chart" ,image :Strings.CUSTOM_CHART )),
+          cardView(title: "Weekly Chart" , image :Strings.WEEKLY_CHART),
+            GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(
+                        builder: (c){
+                             return monthlyChart(context);
+                        }
+                ));
+              },
+    child: cardView(title: "Monthly Chart" ,image :Strings.MONTHLY_CHART )
+    ),
             cardView(title: "Year Chart" ,image :Strings.YEARLY_CHART ),
             cardView(title: "Custom Numbers multiline" ,image :Strings.MULTILINE_CHART ),
           ],
