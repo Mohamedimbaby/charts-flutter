@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbezier/screen/weekly_chart.dart';
+import 'package:flutterbezier/screen/yearly_chart.dart';
 
 import 'Strings.dart';
 
@@ -11,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -45,9 +48,15 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisCount: 2, childAspectRatio: 2.0),
           children: [
             cardView(title: "Custom Chart", image: Strings.CUSTOM_CHART),
-            cardView(title: "Weekly Chart", image: Strings.WEEKLY_CHART),
+            cardView(
+                title: "Weekly Chart",
+                image: Strings.WEEKLY_CHART,
+                screen: WeeklyChart()),
             cardView(title: "Monthly Chart", image: Strings.MONTHLY_CHART),
-            cardView(title: "Year Chart", image: Strings.YEARLY_CHART),
+            cardView(
+                title: "Year Chart",
+                image: Strings.YEARLY_CHART,
+                screen: YearlyChart()),
             cardView(
                 title: "Custom Numbers multiline",
                 image: Strings.MULTILINE_CHART),
@@ -57,29 +66,32 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget cardView({String title, String image}) {
-    return Container(
-      width: 200,
-      height: 120,
-      alignment: Alignment.center,
-      child: ListView(
-        children: [
-          Image.asset(
-            image,
-            height: 60,
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                title,
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            ],
-          )
-        ],
+  Widget cardView({String title, String image, var screen}) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => screen),
+        );
+      },
+      child: Container(
+        width: 200,
+        height: 120,
+        alignment: Alignment.center,
+        child: ListView(
+          children: [
+            Image.asset(
+              image,
+              height: 60,
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            )
+          ],
+        ),
       ),
     );
   }
