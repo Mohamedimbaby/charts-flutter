@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbezier/screen/monthly_chart.dart';
 import 'package:flutterbezier/screen/multiline_chart.dart';
@@ -46,8 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: GridView(
+          scrollDirection: Axis.vertical,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 2.0),
+              crossAxisCount: 1, childAspectRatio: 2.0, mainAxisSpacing: 2, crossAxisSpacing: 2),
           children: [
             cardView(
                 title: "Custom Chart",
@@ -87,10 +89,12 @@ class _MyHomePageState extends State<MyHomePage> {
           width: 200,
           height: 120,
           alignment: Alignment.center,
-          child: ListView(children: [
+          child: Column(
+              children: [
             Image.asset(
               image,
-              height: 60,
+              width: MediaQuery.of(context).size.width,
+              height: 150,
             ),
             Text(
               title,

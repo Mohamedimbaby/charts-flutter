@@ -35,9 +35,9 @@ Widget monthlyChart(BuildContext context) {
         fromDate: fromDate,
         toDate: toDate,
         selectedDate: toDate,
-        footerDateTimeBuilder: (value, scaleType) {
+        /*footerDateTimeBuilder: (value, scaleType) {
           return  x_axis_format(value,  scaleType);
-        },
+        },*/
         series: [
           BezierLine(
             dataPointStrokeColor: Colors.blue,
