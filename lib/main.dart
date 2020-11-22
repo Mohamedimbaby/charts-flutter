@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbezier/screen/monthly_chart.dart';
+import 'package:flutterbezier/screen/multiline_chart.dart';
 import 'package:flutterbezier/screen/weekly_chart.dart';
 import 'package:flutterbezier/screen/yearly_chart.dart';
 
-import 'file:///D:/new%20apps/charts-flutter/lib/screen/monthly_chart.dart';
 
 import 'Strings.dart';
 import 'screen/custom_chart.dart';
@@ -66,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 screen: YearlyChart()),
             cardView(
                 title: "Custom Numbers multiline",
-                image: Strings.MULTILINE_CHART),
+                image: Strings.MULTILINE_CHART,
+            screen: MultilineCharts()),
           ],
         ),
       ),
