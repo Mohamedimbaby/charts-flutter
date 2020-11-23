@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbezier/screen/monthly_chart.dart';
 import 'package:flutterbezier/screen/multiline_chart.dart';
@@ -92,7 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 title,
-                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
             ),
