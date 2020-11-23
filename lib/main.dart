@@ -4,7 +4,6 @@ import 'package:flutterbezier/screen/multiline_chart.dart';
 import 'package:flutterbezier/screen/weekly_chart.dart';
 import 'package:flutterbezier/screen/yearly_chart.dart';
 
-
 import 'Strings.dart';
 import 'screen/custom_chart.dart';
 
@@ -45,9 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: GridView(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 2.0),
+        child: ListView(
           children: [
             cardView(
                 title: "Custom Chart",
@@ -68,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             cardView(
                 title: "Custom Numbers multiline",
                 image: Strings.MULTILINE_CHART,
-            screen: MultilineCharts()),
+                screen: MultilineCharts()),
           ],
         ),
       ),
@@ -77,28 +74,31 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget cardView({String title, String image, var screen}) {
     return InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => screen),
-          );
-        },
-        child: Container(
-          width: 200,
-          height: 120,
-          alignment: Alignment.center,
-          child: ListView(children: [
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => screen),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          child: Column(children: [
             Image.asset(
               image,
-              height: 60,
+              fit: BoxFit.cover,
             ),
-            Text(
-              title,
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            )
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                title,
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ]),
-        ));
+        ),
+      ),
+    );
   }
 }

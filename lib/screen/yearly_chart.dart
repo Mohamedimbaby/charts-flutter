@@ -80,7 +80,7 @@ class YearlyChart extends StatelessWidget {
           ],
           config: BezierChartConfig(
 
-              /// configuration of vertical indicator on x-axis
+              ///   
               verticalIndicatorStrokeWidth: 3.0,
               verticalIndicatorColor: Colors.black26,
               showVerticalIndicator: true,
